@@ -1,0 +1,13 @@
+{
+  "name": "devportal-node",
+  "version": "1.0.0",
+  "description": "Packages for dp-unicompile image.",
+  "author": "Pronovix",
+  "license": "GPL-2.0-or-later",
+  "dependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "unicompile": "^2.2.0"
+  }
+}
