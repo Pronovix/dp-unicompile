@@ -6,7 +6,7 @@ RUN mkdir -p "${APP_ROOT}/target"
 
 WORKDIR /app
 
-COPY package.json babel.config.json unicompile_entrypoint.sh ./
+COPY package.json babel.config.json docker_entrypoint.sh ./
 RUN yarn install
 
-ENTRYPOINT [ "./unicompile_entrypoint.sh" ]
+ENTRYPOINT [ "./docker_entrypoint.sh" ]
