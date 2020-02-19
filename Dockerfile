@@ -1,12 +1,15 @@
-FROM node:current
+FROM node:current-alpine
 
-ENV APP_ROOT="/app"
-ENV PATH="/home/node/.yarn/bin:${APP_ROOT}/node_modules/.bin:${PATH}"
-RUN mkdir -p "${APP_ROOT}/target"
+USER 1000:1000
 
-WORKDIR /app
+RUN mkdir -p /home/node/app
 
-COPY package.json babel.config.json docker_entrypoint.sh ./
+WORKDIR /home/node/app
+
+COPY --chown=1000:1000 package.json babel.config.json docker_entrypoint.sh ./
+
 RUN yarn install
+
+ENV PATH=$PATH:/home/node/app/node_modules/.bin
 
 ENTRYPOINT [ "./docker_entrypoint.sh" ]
